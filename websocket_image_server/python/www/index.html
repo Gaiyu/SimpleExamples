@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+    </head>
+    <style>
+    .image {
+        max-width:99vw;
+        max-height:99vh;
+        margin:auto;
+        display:block;
+    }
+    </style>
+    <body>
+        <img class="image"></img>
+        <script>
+            var img = document.getElementsByTagName('img')[0];
+            domain = window.location.host;
+            ip = domain.split(":")[0];
+            ws = new WebSocket(((window.location.protocol === "https:") ? "wss://" : "ws://") + ip + ":5555");
+            ws.onmessage = function (event) {
+                img.src = window.URL.createObjectURL(event.data);
+            };
+        </script>
+    </body>
+</html>
