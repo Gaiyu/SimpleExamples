@@ -22,7 +22,7 @@ mkdir -p rootfs ; docker export $(docker create alpine:3) | tar -C rootfs -xf  -
 cp cpu100 ./rootfs/bin
 chmod 777 ./rootfs
 ```
-# 运行
+## 运行
 ###### 使用./rootfs做为容器根文件系统启动容器，并用sh做为容器init进程（PID == 1）。
 ```
 sudo ./create_container ./rootfs/ /bin/busybox sh
@@ -36,6 +36,6 @@ sudo ./create_container ./rootfs/ /bin/busybox sh
 ```
 ./setup_net.sh <PID of container> 172.18.0.3
 ```
-# 测试
+## 测试
 ###### 在容器的shell中运行cpu100，可以看到容器只有1个CPU。
 也可以通过cat /proc/<PID of container>/status | grep Cpus_allowed_list来查看
