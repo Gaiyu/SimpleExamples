@@ -12,7 +12,7 @@ gcc --static ./create_container.c -o create_container
 ```
 go build -o cpu100 main.go
 ```
-# 准备测试环境
+## 准备测试环境
 ###### 准备测试容器根文件系统，可以直接从docker镜像中导出。
 ```
 mkdir -p rootfs ; docker export $(docker create alpine:3) | tar -C rootfs -xf  -
